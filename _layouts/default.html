@@ -1,15 +1,9 @@
 {% include header.html %}
 
-    {% include title-group.html %}
-
     <main>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-
-                    {% for post in paginator.posts %}
-                      {% include title.html %}
-                    {% endfor %}
 
                     {% include pagination.html %}
 
