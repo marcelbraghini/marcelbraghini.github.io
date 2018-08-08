@@ -25,6 +25,10 @@
               {% if post.position == "right" %}
                 {% include content-right.html %}
               {% endif %}
+
+              {% if post.position == "center" %}
+                {% include content-center.html %}
+              {% endif %}
               </div>
             {% endfor %}
 
