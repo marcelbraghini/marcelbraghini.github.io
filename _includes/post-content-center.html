@@ -1,6 +1,17 @@
 <div class="content">
-  <h3 class="title">{{ post.title }}</h3>
 
+  <h3 class="title">{{ post.title_one }}</h3>
+  <h3 class="title">{{ post.title_two }}</h3>
   <p class="excerpt">{{ post.lead_text }}</p>
+
+  {% if post.project_link_academy != empty %}
+  <a href="{{ post.project_link_academy }}" class="project-link" target="_blank">
+  	<button class="btn btn-default btn-lg"><i class="fa fa-{{post.button_icon_academy}} fa-lg"></i>{{post.button_text_academy}}</button></a>
+  {% endif %} 
+   
+  {% if post.project_link_github != empty %}
+  <a href="{{ post.project_link_github }}" class="project-link" target="_blank">
+  	<button class="btn btn-default btn-lg"><i class="fa fa-{{post.button_icon_github}} fa-lg"></i>{{post.button_text_github}}</button></a>
+  {% endif %}
 
 </div>
