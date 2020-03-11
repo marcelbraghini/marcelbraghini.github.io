@@ -15,11 +15,10 @@
 # in the templates via {{ site.myvariable }}.
 title: "Marcel Braghini"
 email: 'marcel.braghini@gmail.com'
-description: "Análise e desenvolvimento de software"
+description: "Desenvolvedor"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://github.com/marcelbraghini/marcelbraghini.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: 'marcelbraghini'
-facebook_username: 'marcel.braghini'
 instagram_username: 'marcel.braghini'
 linkedin_username: 'marcel-braghini-8b5210b6'
 
