@@ -11,12 +11,31 @@
           width="200" height="200">
           <br><br>
 
-          <h2>...</h2>
+          <div class="hero-buttons">
+            {% if site.github_username != '' %}
+              <a href="https://github.com/{{site.github_username}}" target="_blank"><button class="btn btn-default btn-md"><i class="fa fa-github fa-lg"></i>Github</button></a>
+            {% endif %}
+            {% if site.instagram_username != '' %}
+              <a href="https://www.instagram.com/{{site.instagram_username}}" target="_blank"><button class="btn btn-default btn-md"><i class="fa fa-instagram fa-lg"></i>Instagram</button></a>
+            {% endif %}  
+            {% if site.linkedin_username != '' %}
+              <a href="https://www.linkedin.com/in/{{site.linkedin_username}}" target="_blank"><button class="btn btn-default btn-md"><i class="fa fa-linkedin fa-lg"></i>Linkedin</button></a>
+            {% endif %}
+          </div>
           
         	<p>Formado em Sistemas de Informação pela Unochapecó, pós graduado em Gestão de Projetos pela
           Universidade Positivo, atuando no desenvolvimento back-end com java para a web desde 2016 em Chapecó-SC,
           com conhecimentos em: Spring Boot, Quarkus, bases de dados SqlServer, Postgres e Mongodb, 
           com mensageria utilizando o Rabbitmq, micro serviços, containers com Docker, integração contínua com Jenkins e Git.</p>
+
+          {% if site.description != '' or site.enable_contact == true %}
+          <p class="text-center">
+            {% if site.enable_contact == true %}
+            {% include contact.html %}
+            {% include contact-modal.html %}
+            {% endif %}
+          </p>
+          {% endif %}
 
           <img alt="spring-logo" src="/img/spring.jpg" width="200" height="100">
           <img alt="quarkus-logo" src="/img/quarkus.png" width="200" height="100">
