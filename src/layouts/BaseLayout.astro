@@ -35,7 +35,30 @@ const {
                     />
                     <span>Marcel Braghini</span>
                 </a>
-                <nav class="nav">
+                <button
+                    class="nav-toggle"
+                    aria-controls="site-nav"
+                    aria-expanded="false"
+                    aria-label="Abrir menu"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <nav class="nav" id="site-nav">
                     <a href="/#sobre">Sobre</a>
                     <a href="/#habilidades">Habilidades</a>
                     <a href="/#experiencia">Experiência</a>
@@ -62,5 +85,23 @@ const {
                 <p>© {new Date().getFullYear()} Marcel Braghini. MBTECH.</p>
             </div>
         </footer>
+        <script is:inline>
+            document.addEventListener("DOMContentLoaded", () => {
+                const header = document.querySelector(".site-header");
+                const btn = header?.querySelector(".nav-toggle");
+                const nav = header?.querySelector("#site-nav");
+                if (!header || !btn) return;
+                btn.addEventListener("click", () => {
+                    const open = header.classList.toggle("open");
+                    btn.setAttribute("aria-expanded", String(open));
+                });
+                nav?.querySelectorAll("a")?.forEach((a) => {
+                    a.addEventListener("click", () => {
+                        header.classList.remove("open");
+                        btn.setAttribute("aria-expanded", "false");
+                    });
+                });
+            });
+        </script>
     </body>
 </html>

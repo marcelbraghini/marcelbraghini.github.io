@@ -5,7 +5,7 @@
     --muted: #9ca3af;
     --accent: #60a5fa;
     --border: #1f2937;
-    --header-offset: 96px; /* compensação do header sticky nas âncoras */
+    --header-offset: 96px;
 }
 * {
     box-sizing: border-box;
@@ -44,6 +44,22 @@ body {
     align-items: center;
     gap: 24px;
 }
+.nav-toggle {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid var(--border);
+    cursor: pointer;
+}
+.nav-toggle:hover {
+    background: var(--panel);
+}
 .logo-link {
     display: inline-flex;
     align-items: center;
@@ -71,9 +87,7 @@ body {
     border: 1px solid var(--border);
 }
 .nav {
-    margin-left: auto;
-    display: flex;
-    gap: 16px;
+    display: none;
 }
 .nav a {
     color: var(--muted);
@@ -84,6 +98,25 @@ body {
 .nav a:hover {
     color: var(--text);
     background: var(--panel);
+}
+
+.site-header.open .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(11, 15, 26, 0.98);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 16px 16px;
+}
+.site-header.open .nav a {
+    padding: 10px 12px;
+}
+.site-header.open .logo-link {
+    display: none;
 }
 
 .hero {
@@ -112,7 +145,6 @@ body {
 section {
     margin-top: 32px;
 }
-/* Garante que ao clicar em #sobre, #experiencia, etc., o topo da seção não fique sob o header */
 section[id] {
     scroll-margin-top: var(--header-offset);
 }
@@ -166,7 +198,6 @@ a {
     color: var(--accent);
 }
 
-/* Utilitários para MBTECH */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -217,4 +248,34 @@ a {
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 12px;
+}
+
+@media (min-width: 800px) {
+    .nav-toggle {
+        display: none;
+    }
+    .site-header .container {
+        gap: 24px;
+    }
+    .nav {
+        display: flex;
+        margin-left: auto;
+        gap: 16px;
+        position: static;
+        background: transparent;
+        padding: 0;
+    }
+    .site-header.open .nav {
+        display: flex; /* garante que não muda nada caso classe open esteja presente */
+        flex-direction: row;
+        top: auto;
+        left: auto;
+        right: auto;
+        background: transparent;
+        border: 0;
+        padding: 0;
+    }
+    .site-header.open .logo-link {
+        display: inline-flex;
+    }
 }
