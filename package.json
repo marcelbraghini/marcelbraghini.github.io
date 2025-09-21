@@ -7,9 +7,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "build:watch": "chokidar 'src/**/*' 'public/**/*' 'astro.config.mjs' -c 'npm run build'"
   },
   "dependencies": {
     "astro": "^4.15.1"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0"
   }
 }

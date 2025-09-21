@@ -1,89 +1,91 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { profile } from "../data/profile";
-const pageTitle = 'Início';
+const pageTitle = "Início";
 ---
+
 <BaseLayout pageTitle={pageTitle}>
-  <section id="sobre" class="hero">
-    <h1>{profile.name}</h1>
-    <p class="subtitle">{profile.summary}</p>
-    <ul class="contact">
-      <li><strong>Local:</strong> {profile.location}</li>
-      <li><strong>E-mail:</strong> <a href={`mailto:${profile.email}`}>{profile.email}</a></li>
-      <li><strong>Telefone:</strong> <a href={`tel:+5549988073736`}>{profile.phone} {profile.whatsapp ? '(WhatsApp)' : ''}</a></li>
-      <li><strong>LinkedIn:</strong> <a target="_blank" rel="noopener" href={profile.linkedin}>{profile.linkedin}</a></li>
-    </ul>
-  </section>
+    <section id="sobre" class="hero">
+        <p class="subtitle">{profile.summary}</p>
+    </section>
 
-  <section id="objetivo">
-    <h2>Objetivo</h2>
-    <p>{profile.objective}</p>
-  </section>
+    <section id="habilidades">
+        <h2>Habilidades Técnicas</h2>
+        <div class="skills">
+            <div>
+                <h3>Linguagens e Frameworks</h3>
+                <ul>
+                    {
+                        profile.skills.languagesFrameworks.map((s) => (
+                            <li>{s}</li>
+                        ))
+                    }
+                </ul>
+            </div>
+            <div>
+                <h3>Arquitetura</h3>
+                <ul>
+                    {profile.skills.architecture.map((s) => <li>{s}</li>)}
+                </ul>
+            </div>
+            <div>
+                <h3>Ferramentas e Plataformas</h3>
+                <ul>
+                    {profile.skills.toolsPlatforms.map((s) => <li>{s}</li>)}
+                </ul>
+            </div>
+            <div>
+                <h3>Monitoramento</h3>
+                <ul>
+                    {profile.skills.monitoring.map((s) => <li>{s}</li>)}
+                </ul>
+            </div>
+        </div>
+    </section>
 
-  <section id="habilidades">
-    <h2>Habilidades Técnicas</h2>
-    <div class="skills">
-      <div>
-        <h3>Linguagens e Frameworks</h3>
-        <ul>
-          {profile.skills.languagesFrameworks.map((s) => <li>{s}</li>)}
-        </ul>
-      </div>
-      <div>
-        <h3>Arquitetura</h3>
-        <ul>
-          {profile.skills.architecture.map((s) => <li>{s}</li>)}
-        </ul>
-      </div>
-      <div>
-        <h3>Ferramentas e Plataformas</h3>
-        <ul>
-          {profile.skills.toolsPlatforms.map((s) => <li>{s}</li>)}
-        </ul>
-      </div>
-      <div>
-        <h3>Monitoramento</h3>
-        <ul>
-          {profile.skills.monitoring.map((s) => <li>{s}</li>)}
-        </ul>
-      </div>
-    </div>
-  </section>
+    <section id="experiencia">
+        <h2>Experiência</h2>
+        {
+            profile.experience.map((job) => (
+                <article class="job">
+                    <header>
+                        <h3>{job.company}</h3>
+                        <span class="period">{job.period}</span>
+                        {job.role && <span class="role"> · {job.role}</span>}
+                    </header>
+                    {job.details && (
+                        <ul>
+                            {job.details.map((d) => (
+                                <li>{d}</li>
+                            ))}
+                        </ul>
+                    )}
+                    {job.projects && job.projects.length > 0 && (
+                        <div class="projects">
+                            <strong>Principais projetos:</strong>
+                            <ul>
+                                {job.projects.map((p) => (
+                                    <li>{p}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                </article>
+            ))
+        }
+    </section>
 
-  <section id="experiencia">
-    <h2>Experiência</h2>
-    {profile.experience.map((job) => (
-      <article class="job">
-        <header>
-          <h3>{job.company}</h3>
-          <span class="period">{job.period}</span>
-          {job.role && <span class="role"> · {job.role}</span>}
-        </header>
-        {job.details && (
-          <ul>
-            {job.details.map((d) => <li>{d}</li>)}
-          </ul>
-        )}
-        {job.projects && job.projects.length > 0 && (
-          <div class="projects">
-            <strong>Principais projetos:</strong>
-            <ul>
-              {job.projects.map((p) => <li>{p}</li>)}
-            </ul>
-          </div>
-        )}
-      </article>
-    ))}
-  </section>
-
-  <section id="formacao">
-    <h2>Formação</h2>
-    <ul>
-      {profile.education.map((e) => (
-        <li>
-          <strong>{e.degree}</strong> — {e.institution} <span class="period">({e.period})</span>
-        </li>
-      ))}
-    </ul>
-  </section>
+    <section id="formacao">
+        <h2>Formação</h2>
+        <ul>
+            {
+                profile.education.map((e) => (
+                    <li>
+                        <strong>{e.degree}</strong> — {e.institution}{" "}
+                        <span class="period">({e.period})</span>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
 </BaseLayout>

@@ -1,14 +1,27 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { profile } from "../data/profile";
-const pageTitle = 'Contato';
+const pageTitle = "Contato";
 ---
+
 <BaseLayout pageTitle={pageTitle}>
-  <h1>Contato</h1>
-  <p>Fique à vontade para me contatar pelos canais abaixo:</p>
-  <ul>
-    <li>E-mail: <a href={`mailto:${profile.email}`}>{profile.email}</a></li>
-    <li>Telefone/WhatsApp: <a href={`tel:+5549988073736`}>{profile.phone}</a></li>
-    <li>LinkedIn: <a target="_blank" rel="noopener" href={profile.linkedin}>{profile.linkedin}</a></li>
-  </ul>
+    <h1>Contato</h1>
+    <p>Fique à vontade para me contatar pelos canais abaixo:</p>
+    <ul>
+        <li>E-mail: <a href={`mailto:${profile.email}`}>{profile.email}</a></li>
+        <li>
+            Telefone/WhatsApp: <a href={`tel:+5549988073736`}>{profile.phone}</a
+            >
+        </li>
+        <li>
+            LinkedIn: <a target="_blank" rel="noopener" href={profile.linkedin}
+                >{profile.linkedin}</a
+            >
+        </li>
+        <li>
+            Github: <a target="_blank" rel="noopener" href={profile.github}
+                >{profile.github}</a
+            >
+        </li>
+    </ul>
 </BaseLayout>

@@ -1,39 +1,66 @@
 ---
-const { title = 'Marcel Braghini', description = 'Arquiteto e Desenvolvedor de Software', pageTitle } = Astro.props;
+const {
+    title = "Marcel Braghini",
+    description = "Arquiteto e Desenvolvedor de Software",
+    pageTitle,
+} = Astro.props;
 ---
+
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <title>{pageTitle ? `${pageTitle} · ${title}` : title}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/global.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container">
-        <a href="/" class="brand">Marcel Braghini</a>
-        <nav class="nav">
-          <a href="/#sobre">Sobre</a>
-          <a href="/#experiencia">Experiência</a>
-          <a href="/#habilidades">Habilidades</a>
-          <a href="/#formacao">Formação</a>
-          <a href="/contato">Contato</a>
-        </nav>
-      </div>
-    </header>
-    <main class="container">
-      <slot />
-    </main>
-    <footer class="site-footer">
-      <div class="container">
-        <p>© {new Date().getFullYear()} Marcel Braghini. Construído com Astro.</p>
-      </div>
-    </footer>
-  </body>
-  </html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content={description} />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <title>{pageTitle ? `${pageTitle} · ${title}` : title}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/styles/global.css" />
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="container">
+                <a href="/" class="brand">
+                    <img
+                        src="/marcel-photo.png"
+                        alt="Foto de Marcel Braghini"
+                        class="brand-avatar"
+                        width="48"
+                        height="48"
+                    />
+                    <span>Marcel Braghini</span>
+                </a>
+                <nav class="nav">
+                    <a href="/#sobre">Sobre</a>
+                    <a href="/#habilidades">Habilidades</a>
+                    <a href="/#experiencia">Experiência</a>
+                    <a href="/#formacao">Formação</a>
+                    <a href="/contato">Contato</a>
+                    <a href="/mbtech">MBTECH</a>
+                </nav>
+                <a href="/" class="logo-link" aria-label="Página inicial">
+                    <img
+                        src="/logo.png"
+                        alt="Logotipo"
+                        class="site-logo"
+                        width="54"
+                        height="54"
+                    />
+                </a>
+            </div>
+        </header>
+        <main class="container">
+            <slot />
+        </main>
+        <footer class="site-footer">
+            <div class="container">
+                <p>© {new Date().getFullYear()} Marcel Braghini. MBTECH.</p>
+            </div>
+        </footer>
+    </body>
+</html>

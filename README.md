@@ -1,4 +1,4 @@
-# Site pessoal — Astro
+# MBTECH — Marcel Braghini
 
 Este repositório contém o site pessoal de Marcel Braghini, construído com [Astro](https://astro.build/).
 
@@ -10,6 +10,9 @@ Instale as dependências e rode o servidor de desenvolvimento:
 
 ```bash
 npm install
+npm i -D chokidar-cli
+
+npm run build:watch
 npm run dev
 ```
 
@@ -24,6 +27,4 @@ npm run preview
 
 ## Deploy no GitHub Pages
 
-Este projeto inclui um workflow em `.github/workflows/deploy.yml` que realiza o build e publica na branch `gh-pages`. Para sites do tipo usuário (marcelbraghini.github.io), o Pages pode servir direto da branch `master`/`main` com output em `./` — mas aqui usamos `gh-pages` por simplicidade e independência.
-
-Após o primeiro deploy, configure em Settings → Pages para usar a branch `gh-pages`.
+Este projeto inclui um workflow em `.github/workflows/deploy.yml` que realiza o build e publica na branch `master`.

@@ -1,0 +1,139 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile } from "../data/profile";
+const pageTitle = "MBTECH";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <section class="hero">
+        <h1>MBTECH</h1>
+        <p class="subtitle">
+            Criação de sites rápidos, modernos e sob medida para o seu negócio.
+        </p>
+    </section>
+
+    <section id="servicos">
+        <h2>Tipos de sites que entrego</h2>
+        <div class="grid">
+            <article class="card">
+                <h3>Site Institucional Básico</h3>
+                <p>
+                    Landing Page/One Page — ideal para profissionais autônomos e
+                    pequenas empresas que precisam de presença online simples.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Site Corporativo Multipágina</h3>
+                <p>
+                    Estrutura de (Home, Sobre, Serviços, Blog, Contato).
+                    Indicado para empresas de médio porte.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Blog Pessoal/Profissional</h3>
+                <p>
+                    Compartilhe opiniões, experiências e conhecimento. Layout
+                    focado em leitura e SEO.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Portal de Notícias</h3>
+                <p>
+                    Conteúdo com volume elevado e publicação constante por mais
+                    de um autor.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Profissionais Liberais</h3>
+                <p>
+                    Para advogados, arquitetos, designers, psicólogos, coaches:
+                    portfólio, depoimentos e contato.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Restaurantes</h3>
+                <p>Cardápio online</p>
+            </article>
+            <article class="card">
+                <h3>Agências</h3>
+                <p>
+                    Publicidade e marketing digital. O site como cartão de
+                    visitas e case de sucesso.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Sites de Eventos</h3>
+                <p>
+                    Divulgação de conferências, festivais e workshops —
+                    programação e palestrantes.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section id="processo">
+        <h2>Como trabalho</h2>
+        <ol class="steps">
+            <li>
+                <strong>Briefing</strong>
+                <p>Entendimento do objetivo.</p>
+            </li>
+            <li>
+                <strong>Proposta</strong>
+                <p>Escopo, prazos e investimento.</p>
+            </li>
+            <li>
+                <strong>Design + Conteúdo</strong>
+                <p>Identidade visual e revisão de textos.</p>
+            </li>
+            <li>
+                <strong>Desenvolvimento</strong>
+                <p>Site rápido, responsivo e otimizado para SEO.</p>
+            </li>
+            <li>
+                <strong>Publicação</strong>
+                <p>Hospedagem e deploy com monitoramento básico.</p>
+            </li>
+        </ol>
+    </section>
+
+    <section id="diferenciais">
+        <h2>Por que a MBTECH?</h2>
+        <div class="grid">
+            <article class="card">
+                <h3>Performance</h3>
+                <p>Sites leves com carregamento rápido.</p>
+            </article>
+            <article class="card">
+                <h3>SEO</h3>
+                <p>Estrutura e metadados preparados para ranquear melhor.</p>
+            </article>
+            <article class="card">
+                <h3>Escalabilidade</h3>
+                <p>
+                    Arquitetura pensada para crescer, com integrações quando
+                    necessário.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Transparência</h3>
+                <p>
+                    Comunicação direta, prazos claros e suporte após a entrega.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section id="contato-cta" class="hero">
+        <h2>Vamos construir seu site?</h2>
+        <p>Me chame e receba uma proposta sob medida.</p>
+        <ul class="contact">
+            <li>
+                E-mail: <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            </li>
+            <li>
+                WhatsApp: <a href={`tel:+5549988073736`}>{profile.phone}</a>
+            </li>
+        </ul>
+    </section>
+</BaseLayout>
