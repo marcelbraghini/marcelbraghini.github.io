@@ -266,7 +266,7 @@ a {
         padding: 0;
     }
     .site-header.open .nav {
-        display: flex; /* garante que não muda nada caso classe open esteja presente */
+        display: flex;
         flex-direction: row;
         top: auto;
         left: auto;
